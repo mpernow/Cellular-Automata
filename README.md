@@ -7,3 +7,4 @@ Todo:
 * Display rules (?)
 * More checks (eg if rule is larger than size,...)
 * Even-length  rule
+* Genetic algorithm to get the "majority-computing" cellAut rule

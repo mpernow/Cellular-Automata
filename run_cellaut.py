@@ -15,8 +15,8 @@ size = 200
 init_arr = np.zeros(size)
 init_arr[int(size/2)]=1
 my_ca.set_size(size)
-#my_ca.run(num=100)
-my_ca.run(num=100,init=list(init_arr))
+my_ca.run(num=200)
+#my_ca.run(num=100,init=list(init_arr))
 myplot = my_ca.disp()
 
 plt.show(myplot)
