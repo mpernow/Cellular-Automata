@@ -11,8 +11,8 @@ class CellAut():
         neighbours is the total number of cells checked at each update.
         size is the number of cells in each iteration.
         """
-        if neighbours != 3:
-            raise ValueError("Only length 3 automata are allowed at the time")
+        if neighbours%2 != 1:
+            raise ValueError("Only odd length allowed")
         self.neighbours = neighbours
         self.rule = np.random.choice([0,1], 2**self.neighbours).astype(int)
         self.size = 15
@@ -51,15 +51,14 @@ class CellAut():
             self.pattern[0] = init
         for age in range(num-1):
             for cell in range(self.size):
-                this = cell
-                prev = cell - 1
-                if this == self.size - 1:
-                    next = 0
-                else:
-                    next = cell + 1
                 this_gen = self.pattern[age]
-                current = ''.join(str(e) for e in [this_gen[prev],this_gen[this],this_gen[next]])
-                rule_ind = 7 - int(current, 2) # Wolfram convention for rule
+                indices = [cell - int((self.neighbours-1)/2) + i for i in range(self.neighbours)]
+                for i in range(len(indices)):
+                    if indices[i] >= self.size:
+                        indices[i] = indices[i] - self.size
+                neighbour_vals = [this_gen[ind] for ind in indices]
+                current = ''.join(str(e) for e in neighbour_vals)
+                rule_ind = 2**self.neighbours - 1 - int(current, 2) # Wolfram convention for rule
                 self.pattern[age+1][cell] = self.rule[rule_ind]
 
     def disp(self):
