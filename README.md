@@ -1,3 +1,9 @@
 This repo contains code to create some simple cellular automata. 
-Class definitions contained in cellAut.py and example usage is demonstrated in run.py.
-Currently only supports the update step to depend on three cells at a time. Future update will correct this.
+
+Class definitions contained in cellAut.py and example usage is demonstrated in run.py. Allows for rules of any odd length.
+
+Todo: 
+* Better plotting functionality
+* Display rules (?)
+* More checks (eg if rule is larger than size,...)
+* Even-length  rule
