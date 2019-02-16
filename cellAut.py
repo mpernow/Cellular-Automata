@@ -65,7 +65,10 @@ class CellAut():
         """
         Plot the cellular automaton.
         """
-        return plt.imshow(self.pattern, cmap='Greys',  interpolation='nearest')
+        fig = plt.imshow(self.pattern, cmap='Greys',  interpolation='nearest')
+        fig.axes.get_xaxis().set_visible(False)
+        fig.axes.get_yaxis().set_visible(False)
+        return fig
 
     def __str__(self):
         """
