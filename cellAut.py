@@ -15,7 +15,7 @@ class CellAut():
             raise ValueError("Only odd length allowed")
         self.neighbours = neighbours
         self.rule = np.random.choice([0,1], 2**self.neighbours).astype(int)
-        self.size = 15
+        self.size = size
         self.pattern = []
 
     def set_rule(self, rule):

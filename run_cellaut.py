@@ -19,7 +19,7 @@ init_arr[int(size/2)]=1
 #init_arr[int(3*size/4)]=1
 my_ca.set_size(size)
 my_ca.run(num=200)
-#my_ca.run(num=200,init=list(init_arr))
+my_ca.run(num=200,init=list(init_arr))
 myplot = my_ca.disp()
 
 plt.show(myplot)
